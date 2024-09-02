@@ -69,6 +69,8 @@ services:
     healthcheck:
       test: redis-cli ping || exit 1
     restart: always
+    volumes:
+      - immich-redis:/data
     networks:
       proxy:
 
@@ -94,6 +96,7 @@ services:
       proxy:
 
 volumes:
+  immich-redis:
   model-cache:
   test_library:
     driver: local
