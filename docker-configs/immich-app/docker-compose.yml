@@ -19,7 +19,8 @@ services:
       # Do not edit the next line. If you want to change the media storage location on your system, edit the value of UPLOAD_LOCATION in the .env file
       - ${UPLOAD_LOCATION}:/usr/src/app/upload
       - /etc/localtime:/etc/localtime:ro
-      - test_library:/usr/src/app/test_library
+#      - test_library:/usr/src/app/test_library
+      - external_photo_library:/usr/src/app/external_photo_library
     env_file:
       - .env
     labels:
@@ -98,11 +99,23 @@ services:
 volumes:
   immich-redis:
   model-cache:
-  test_library:
+  immich_upload:
     driver: local
     driver_opts:
       type: cifs
-      device: "//win-server-04.cassar.online/Photos_Test"
+      device: "//win-server-04.cassar.online/Immich_Upload"
+      o: "username=immichsvcacct@cassar.online,password=asdlvkjn2490ievdhus9c78v78889!%%^,uid=1000,gid=1000"
+#  test_library:
+#    driver: local
+#    driver_opts:
+#      type: cifs
+#      device: "//win-server-04.cassar.online/Photos_Test"
+#      o: "username=immichsvcacct@cassar.online,password=asdlvkjn2490ievdhus9c78v78889!%%^,uid=1000,gid=1000"
+  external_photo_library:
+    driver: local
+    driver_opts:
+      type: cifs
+      device: "//win-server-04.cassar.online/Photos"
       o: "username=immichsvcacct@cassar.online,password=asdlvkjn2490ievdhus9c78v78889!%%^,uid=1000,gid=1000"
 
 networks:
