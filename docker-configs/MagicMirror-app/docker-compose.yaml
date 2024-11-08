@@ -21,3 +21,9 @@ services:
       - ../mounts/css:/opt/magic_mirror/css
     ports:
       - 8080:8080
+    networks:
+      proxy:
+
+networks:
+  proxy:
+    external: true
