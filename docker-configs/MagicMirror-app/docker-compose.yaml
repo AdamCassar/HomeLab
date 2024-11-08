@@ -12,7 +12,7 @@ services:
       - "traefik.http.routers.magicmirror-secure.rule=Host(`magicmirror.cassar.online`)"
       - "traefik.http.routers.magicmirror-secure.tls=true"
       - "traefik.http.routers.magicmirror-secure.service=magicmirror"
-      - "traefik.http.services.magicmirror.loadbalancer.server.port=7575"
+      - "traefik.http.services.magicmirror.loadbalancer.server.port=8080"
       - "traefik.docker.network=proxy"
     restart: unless-stopped
     volumes:
