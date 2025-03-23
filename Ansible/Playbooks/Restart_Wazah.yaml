@@ -1,1 +1,10 @@
+---
+- hosts: all
+  become: true
 
+
+  tasks:
+    - name: Restart service httpd, in all cases
+      ansible.builtin.service:
+        name: wazuh-agent
+        state: restarted
