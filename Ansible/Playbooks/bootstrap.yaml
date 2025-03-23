@@ -23,7 +23,7 @@
     - user:
         name: adam
         uid: 1001
-        group: ansible
+        group: adam
         groups: cdrom,floppy,audio,dip,video,plugdev,netdev
         password: "{{ adam_password_crypted }}"
         shell: /bin/bash
