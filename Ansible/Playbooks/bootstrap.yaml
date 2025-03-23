@@ -11,6 +11,8 @@
           - sudo
           - ifupdown
           - locate
+          - unattended-upgrades
+          - apt-listchanges
         state: present
     - group:
         name: ansible
