@@ -4,7 +4,7 @@
 
 
   tasks:
-    - name: Restart service httpd, in all cases
+    - name: Restart service wazuh-agent, in all cases
       ansible.builtin.service:
         name: wazuh-agent
         state: restarted
