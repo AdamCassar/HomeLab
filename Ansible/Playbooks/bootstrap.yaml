@@ -15,6 +15,18 @@
         password: "{{ ansible_password_crypted }}"
         shell: /bin/bash
         state: present
+    - group:
+        name: adam
+        gid: 1001
+        state: present
+    - user:
+        name: adam
+        uid: 1001
+        group: ansible
+        groups: cdrom,floppy,audio,dip,video,plugdev,netdev
+        password: "{{ adam_password_crypted }}"
+        shell: /bin/bash
+        state: present
     - apt:
         update_cache: yes
         name:
