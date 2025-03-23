@@ -13,3 +13,8 @@
         api_user: wazuh
         max_retries: 5
         retry_interval: 5
+
+  - name: Lookup ansible_hostname in getent database
+    command: getent hosts {{ ansible_hostname }}
+    delegate_to: localhost
+    register: result
