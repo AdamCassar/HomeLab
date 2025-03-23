@@ -4,6 +4,14 @@
   vars_files:
     - /etc/ansible/vault.yaml
   tasks:
+    - apt:
+        update_cache: yes
+        name:
+          - curl
+          - sudo
+          - ifupdown
+          - locate
+        state: present
     - group:
         name: ansible
         gid: 1005
@@ -27,14 +35,6 @@
         groups: cdrom,floppy,audio,dip,video,plugdev,netdev
         password: "{{ adam_password_crypted }}"
         shell: /bin/bash
-        state: present
-    - apt:
-        update_cache: yes
-        name:
-          - curl
-          - sudo
-          - ifupdown
-          - locate
         state: present
     - copy:
         content: "ansible	ALL = (ALL) NOPASSWD:ALL"
