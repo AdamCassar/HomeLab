@@ -14,7 +14,10 @@
         max_retries: 5
         retry_interval: 5
 
-  - name: Lookup ansible_hostname in getent database
-    command: getent hosts {{ ansible_hostname }}
-    delegate_to: localhost
-    register: result
+  tasks:
+    - name: Register Wazuh Agent
+      command: /var/ossec/bin/agent-auth -m {{ WAZUH_MANAGER }} -A {{ ansible_hostname }} -P {{ WAZUH_REGISTRATION_PASSWORD }}
+      delegate_to: localhost
+      register: result
+
+      
