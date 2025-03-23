@@ -18,11 +18,11 @@
         state: present
     - group:
         name: adam
-        gid: 1001
+        gid: 1010
         state: present
     - user:
         name: adam
-        uid: 1001
+        uid: 1010
         group: adam
         groups: cdrom,floppy,audio,dip,video,plugdev,netdev
         password: "{{ adam_password_crypted }}"
