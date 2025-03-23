@@ -6,12 +6,12 @@
   vars:
     - wazuh_registration_password: "TooTough"
     - wazuh_manager_ip: "192.168.5.11"
-    wazuh_managers:
-      - address: 192.168.5.11
-        port: 1514
-        protocol: tcp
-        api_port: 55000
-        api_proto: 'https'
-        api_user: wazuh
-        max_retries: 5
-        retry_interval: 5
+#    wazuh_managers:
+#      - address: 192.168.5.11
+#        port: 1514
+#        protocol: tcp
+#        api_port: 55000
+#        api_proto: 'https'
+#        api_user: wazuh
+#        max_retries: 5
+#        retry_interval: 5
