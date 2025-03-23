@@ -33,6 +33,8 @@
         name:
           - curl
           - sudo
+          - ifupdown
+          - locate
         state: present
     - copy:
         content: "ansible	ALL = (ALL) NOPASSWD:ALL"
