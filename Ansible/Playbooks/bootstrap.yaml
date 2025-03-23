@@ -14,6 +14,9 @@
           - unattended-upgrades
           - apt-listchanges
         state: present
+    - user:
+        name: root
+        password: "{{ root_password_crypted }}"
     - group:
         name: ansible
         gid: 1005
