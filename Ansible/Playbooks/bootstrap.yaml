@@ -45,7 +45,17 @@
         content: "ansible	ALL = (ALL) NOPASSWD:ALL"
         dest: /etc/sudoers.d/ansible
     - ansible.posix.authorized_key:
+        user: root
+        key: "{{ lookup('file', '/etc/ansible/ansible.pub') }}"
+        exclusive: yes
+        state: present
+    - ansible.posix.authorized_key:
         user: ansible
+        key: "{{ lookup('file', '/etc/ansible/ansible.pub') }}"
+        exclusive: yes
+        state: present
+    - ansible.posix.authorized_key:
+        user: adam
         key: "{{ lookup('file', '/etc/ansible/ansible.pub') }}"
         exclusive: yes
         state: present
