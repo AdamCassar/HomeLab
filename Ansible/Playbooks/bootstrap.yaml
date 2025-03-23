@@ -9,7 +9,7 @@
         state: present
     - user:
         name: ansible
-        uid: 1000
+        uid: 1005
         group: ansible
         groups: cdrom,floppy,audio,dip,video,plugdev,netdev
         password: "{{ ansible_password_crypted }}"
