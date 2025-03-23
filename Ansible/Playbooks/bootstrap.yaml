@@ -24,3 +24,8 @@
     - copy:
         content: "ansible	ALL = (ALL) NOPASSWD:ALL"
         dest: /etc/sudoers.d/ansible
+    - ansible.posix.authorized_key:
+        user: ansible
+        key: https://github.com/iamwillbar.keys
+        exclusive: yes
+        state: present
