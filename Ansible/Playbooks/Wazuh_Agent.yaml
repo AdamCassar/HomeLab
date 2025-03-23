@@ -1,5 +1,5 @@
 ---
-- hosts: <WAZUH_AGENT_IP_ADDRESS>
+- hosts: All
   become: yes
   become_user: root
   roles:
