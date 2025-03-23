@@ -3,21 +3,15 @@
   become: true
   roles:
     - wazuh-ansible/roles/wazuh/ansible-wazuh-agent
-#  vars:
-#    wazuh_managers:
-#      - address: 192.168.5.11
-#        port: 1514
-#        protocol: tcp
-#        api_port: 55000
-#        api_proto: 'https'
-#        api_user: wazuh
-#        max_retries: 5
-#        retry_interval: 5
+  vars:
+    - wazuh_manager_ip: {{ WAZUH_MANAGER }}
+    - wazuh_registration_password: {{ WAZUH_REGISTRATION_PASSWORD }}
+    - wazuh_autoupdate: true
+    - wazuh_agent_name: {{ ansible_hostname }}
 
-  tasks:
-    - name: Register Wazuh Agent
-      command: /var/ossec/bin/agent-auth -m {{ WAZUH_MANAGER }} -A {{ ansible_hostname }} -P {{ WAZUH_REGISTRATION_PASSWORD }}
- #     delegate_to: localhost
-      register: result
+#  tasks:
+#    - name: Register Wazuh Agent
+#      command: /var/ossec/bin/agent-auth -m {{ WAZUH_MANAGER }} -A {{ ansible_hostname }} -P {{ WAZUH_REGISTRATION_PASSWORD }}
+#      register: result
 
       
