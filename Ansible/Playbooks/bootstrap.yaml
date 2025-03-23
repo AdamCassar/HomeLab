@@ -26,6 +26,23 @@
         dest: /etc/sudoers.d/ansible
     - ansible.posix.authorized_key:
         user: ansible
-        key: https://github.com/iamwillbar.keys
+        key: "{{ lookup('file', '/etc/ansible/ansible.pub') }}"
         exclusive: yes
         state: present
+    - copy:
+        content: |
+          PermitRootLogin no
+          PasswordAuthentication no
+          ChallengeResponseAuthentication no
+          AcceptEnv LANG LC_*
+          Subsystem sftp /usr/lib/openssh/sftp-server          
+        dest: /etc/ssh/sshd_config
+      register: sshd_config
+    - service:
+        name: sshd
+        enabled: yes
+        state: started
+    - service:
+        name: sshd
+        state: restarted
+      when: sshd_config.changed
