@@ -5,7 +5,7 @@
   tasks:
     - group:
         name: ansible
-        gid: 1000
+        gid: 1005
         state: present
     - user:
         name: ansible
