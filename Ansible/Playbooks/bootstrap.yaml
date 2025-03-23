@@ -1,0 +1,16 @@
+- hosts: all
+  vars_files:
+    - vault.yaml
+  tasks:
+    - group:
+        name: ansible
+        gid: 1000
+        state: present
+    - user:
+        name: ansible
+        uid: 1000
+        group: ansible
+        groups: cdrom,floppy,audio,dip,video,plugdev,netdev
+        password: "{{ ansible_password_crypted }}"
+        shell: /bin/bash
+        state: present
