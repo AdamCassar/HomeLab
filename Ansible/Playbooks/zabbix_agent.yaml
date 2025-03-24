@@ -1,7 +1,7 @@
 ---
   - hosts: all
     roles:
-      - role: zabbix.zabbix.agent
+      - role: ansible-collection/roles/agent/
         agent_variant: 2
         agent_major_version: 6.4
         agent_param_hostname: "{{ ansible_hostname }}"
