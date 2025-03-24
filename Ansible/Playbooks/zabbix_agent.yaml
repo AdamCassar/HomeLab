@@ -1,0 +1,9 @@
+---
+  - hosts: all
+    roles:
+      - role: zabbix.zabbix.agent
+        agent_variant: 2
+        agent_major_version: 6.4
+        agent_param_hostname: {{inventory_hostname}}
+        agent_param_server: 192.168.5.13        # address of Zabbix server to accept connections from;
+        agent_param_serveractive: 192.168.5.13   # address of Zabbix server to connect using active checks;
