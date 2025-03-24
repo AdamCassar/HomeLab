@@ -1,1 +1,12 @@
-ansible-galaxy collection install zabbix.zabbix
+---
+
+collections:
+  - 'namespace.collection'
+  # for common collections:
+  - 'community.general'
+  - 'ansible.posix'
+  - 'community.mysql'
+  - 'community.crypto'
+
+roles:
+  - src: 'namespace.role'
